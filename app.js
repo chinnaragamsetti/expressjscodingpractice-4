@@ -58,7 +58,7 @@ app.get("/players/:playerId/", async (request, response) => {
     player_id=${playerId};
     `;
   const eachplayerDetails = await db.get(eachplayerQuery);
-  response.send(convertdbObject(eachplayer));
+  response.send(convertdbObject(eachplayerDetails));
 });
 
 app.post("/players/", async (request, response) => {
