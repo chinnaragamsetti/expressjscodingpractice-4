@@ -6,6 +6,7 @@ const dbpath = path.join(__dirname, "cricketTeam.db");
 const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
 const app = express();
+app.use(express.json());
 
 let db = null;
 
@@ -112,7 +113,7 @@ app.delete("/players/:playerId/", async (request, response) => {
     DELETE FROM
     cricket_team
     WHERE
-    player_id=${palyerId};
+    player_id=${playerId};
     `;
   await db.run(deleteplayerQuery);
   response.send("Player removed");
